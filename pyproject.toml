@@ -1,0 +1,48 @@
+[project]
+name = "vlsihub"
+version = "0.2.0"
+description = "VLSI AI Assistant — a multi-agent RAG pipeline for VLSI Design, Digital Logic, and RTL development"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+keywords = ["vlsi", "rag", "llm", "verilog", "digital-logic", "ai-tutor"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "chromadb>=1.5.5",
+    "groq>=1.1.2",
+    "langchain>=1.2.14",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.23",
+    "langchain-huggingface>=1.2.1",
+    "pypdf>=6.9.2",
+    "python-dotenv>=1.2.2",
+    "rich>=14.3.3",
+    "sentence-transformers>=5.3.0",
+    "streamlit>=1.56.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[project.scripts]
+vlsihub = "rag.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
